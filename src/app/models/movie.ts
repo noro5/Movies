@@ -3,7 +3,7 @@ export class Movie {
         this.id = data.id;
         this.title = data.title;
         this.overview = data.overview;
-        this.posterPath = data.poster_path;
+        this.posterPath = 'https://image.tmdb.org/t/p/w154' + data.poster_path;
         this.popularity = data.popularity;
         this.releaseDate = data.release_date;
         this.isFavourite = false;
