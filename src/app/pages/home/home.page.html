@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-input type="text" placeholder="Search..." debounce="500" clearInput="true" (ionChange)="searchForMovie($event)"></ion-input>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="false" [scrollEvents]="true">
+  <div id="container">
+    <ion-list>      
+     <ion-item *ngFor='let movie of movies | async'>
+       <ion-label>{{movie.title}}</ion-label>
+     </ion-item> 
+    </ion-list>
+  </div>
+</ion-content>
