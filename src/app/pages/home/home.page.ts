@@ -3,6 +3,7 @@ import { MdbService } from '../../services/mdb.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Movie } from '../../models/movie';
 import { IonContent } from '@ionic/angular';
+import { FavouriteMoviesService } from 'src/app/services/favourite-movies.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import { IonContent } from '@ionic/angular';
 export class HomePage {
   @ViewChild(IonContent, { static: true }) content: IonContent;
   movies: Observable<Movie[]>;
-  constructor(private movieDb: MdbService) {
+  constructor(private movieDb: MdbService, private favMoviesService: FavouriteMoviesService) {
     this.loadMovies();
   }
 
@@ -32,5 +33,15 @@ export class HomePage {
 
   scrollToTop() {
     this.content.scrollToTop();
+  }
+
+  addToFaviurite(movie: Movie) {
+    if (!movie.isFavourite) {
+      this.favMoviesService.addToFavourite(movie);
+    } else {
+      this.favMoviesService.removeFromFavourite(movie);
+    }
+
+    movie.isFavourite = !movie.isFavourite;
   }
 }

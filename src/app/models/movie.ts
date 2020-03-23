@@ -6,6 +6,7 @@ export class Movie {
         this.posterPath = data.poster_path;
         this.popularity = data.popularity;
         this.releaseDate = data.release_date;
+        this.isFavourite = false;
     }
     id: number;
     title: string;
@@ -13,5 +14,5 @@ export class Movie {
     posterPath: string;
     popularity: number;
     releaseDate: Date;
-
+    isFavourite: boolean;
 }
