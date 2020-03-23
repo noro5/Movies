@@ -1,8 +1,28 @@
 <ion-app>
+  <ion-menu contentId="navigation-content" menuId="navMenu" side="start" type="overlay">
+    <ion-content>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>MovieStar</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-menu-toggle *ngFor="let site of sites">
+        <ion-item [routerLink]="[site.url]">
+          <ion-icon slot="start" [name]="site.icon"></ion-icon>
+          <ion-label>{{site.name}}</ion-label>
+        </ion-item>  
+      </ion-menu-toggle>      
+    </ion-content>
+  </ion-menu>
+
   <ion-header>
     <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button menu="navMenu"></ion-menu-button>
+      </ion-buttons>
       <ion-title>Movie Start</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-router-outlet class="router-content"></ion-router-outlet>
+
+  <ion-router-outlet id="navigation-content" class="router-content"></ion-router-outlet>
 </ion-app>
