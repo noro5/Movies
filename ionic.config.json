@@ -1,0 +1,7 @@
+{
+  "name": "movieStar",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
